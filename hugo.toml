@@ -3,3 +3,17 @@ languageCode = 'en-us'
 title = 'My New Hugo Site'
 [[module.imports]]
 path = "github.com/willfaught/paige"
+
+[languages.en]
+copyright = "© David Storch"
+languagecode = "en-us"
+languagedirection = "ltr"
+languagename = "English"
+title = "David Storch"
+weight = 10
+
+[languages.en.params.paige.site]
+description = "Picker of banjos"
+
+[paige.site]
+menu_style = "tabs"
