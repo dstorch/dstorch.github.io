@@ -5,4 +5,5 @@ title = 'Experience'
 
 [paige.site]
 menu_style = "tabs"
+disable_credit = true
 +++
