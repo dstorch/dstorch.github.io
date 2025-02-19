@@ -1,11 +1,11 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://dstorch.com/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'David Storch'
+
 [[module.imports]]
 path = "github.com/willfaught/paige"
 
 [languages.en]
-copyright = "© David Storch"
 languagecode = "en-us"
 languagedirection = "ltr"
 languagename = "English"
@@ -13,7 +13,7 @@ title = "David Storch"
 weight = 10
 
 [languages.en.params.paige.site]
-description = "Picker of banjos"
+description = "Database Expert / Engineering Leader / Software Engineer"
 
-[paige.site]
-menu_style = "tabs"
+[params.paige.site]
+disable_breadcrumbs = true 

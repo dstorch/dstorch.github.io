@@ -1,0 +1,30 @@
+{{ $page := . }}
+
+{{ $copyright := site.Copyright | markdownify | and ($page.Param "paige.site.disable_copyright" | not) }}
+{{ $credit := $page.Param "paige.site.credit" }}
+{{ $first := templates.Exists "partials/paige/site-footer-first.html" }}
+{{ $last := templates.Exists "partials/paige/site-footer-last.html" }}
+{{ $license := $page.Param "paige.site.license" | markdownify | and ($page.Param "paige.site.disable_license" | not) }}
+{{ $microdata := $page.Params.paige.pages.microdata }}
+
+{{ $credit = $credit | and ($page.Param "paige.site.disable_credit" | not) }}
+
+{{ if or $copyright $credit $first $last $license }}
+    <footer id="paige-site-footer">
+        {{ partial "paige/func-include.html" (dict "name" "site-footer-first%s.html" "page" $page) }}
+
+        {{ with $copyright }}
+            <p class="paige-row-short text-center text-secondary" id="paige-site-copyright" {{ if $microdata }} itemprop="copyrightNotice" {{ end }}>{{ . }}</p>
+        {{ end }}
+
+        {{ with $license }}
+            <p class="paige-row-short text-center text-secondary" id="paige-site-license">{{ . }}</p>
+        {{ end }}
+
+        {{ with $credit }}
+            <p class="paige-row-short text-center text-secondary" id="paige-site-credit">{{ . | safeHTML }}</p>
+        {{ end }}
+
+        {{ partial "paige/func-include.html" (dict "name" "site-footer-last%s.html" "page" $page) }}
+    </footer>
+{{ end }}
