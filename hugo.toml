@@ -15,5 +15,12 @@ weight = 10
 [languages.en.params.paige.site]
 description = "Database Expert / Engineering Leader / Software Engineer"
 
+[params.paige.pages]
+disable_toc = true
+disable_word_count = true
+disable_reading_time = true
+
 [params.paige.site]
 disable_breadcrumbs = true
+disable_credit = true
+menu_style = "tabs"

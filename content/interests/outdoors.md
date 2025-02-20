@@ -1,4 +1,4 @@
 +++
 draft = false
-title = 'Interests'
+title = 'Outdoors'
 +++
