@@ -46,4 +46,4 @@ Systems and methods for database zone sharding and API integration</em>. U.S. Pa
 * <a class="link-secondary text-decoration-none" href="https://patents.google.com/patent/US11537667B2/en" target="_blank"> Horowitz, Storch, and Stearn. <em>
 System and interfaces for performing document validation in a non-relational database</em>. U.S. Patent 11,537,667 B2. Filed 2017.</a>
 * <a class="link-secondary text-decoration-none" href="https://patents.google.com/patent/US10585867B2/en" target="_blank"> Horowitz, Storch, Hirschhorn, and Rassi.<em>
-Systems and methods for generating partial indexes in distributed databases</em>. .S. Patent 10,585,867 B2. Filed 2017.</a>
+Systems and methods for generating partial indexes in distributed databases</em>. US. Patent 10,585,867 B2. Filed 2017.</a>
