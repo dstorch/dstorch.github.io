@@ -7,13 +7,17 @@ title = 'Experience'
 
 #### MongoDB
 
-###### Senior Staff Engineer, Query Processing
+MongoDB is the leading document database management system. I've worked on query processing
+at MongoDB for over a decade, and I'm in the top 12 contributors to the MongoDB server by commit count.
+The [projects](#projects) section below gives a flavor of the topics I've worked on during my tenure.
+At MongoDB, I've grown from an entry level software engineering role into my current role as a Senior Staff Engineer:
 
-###### Staff Engineer, Query Processing
-
-###### Lead Engineer, Query Processing
-
-###### Software Engineer, Query Processing
+Title | Timeframe
+------|----------
+Senior Staff Engineer, Query Processing | Feb 2022 - present
+Staff Software Engineer, Query Processing | Nov 2020 - Feb 2022
+Lead Software Engineer, Query Processing | Dec 2015 - Nov 2020
+Software Engineer, Query Processing | Aug 2013 - Dec 2015
 
 ## Projects
 

@@ -20,6 +20,10 @@ disable_toc = true
 disable_word_count = true
 disable_reading_time = true
 
+[params.paige.subpages]
+disable_word_count = true
+disable_reading_time = true
+
 [params.paige.site]
 disable_breadcrumbs = true
 disable_credit = true
@@ -32,6 +36,10 @@ unsafe = true
 # TODO: Can this be moved to a separate CSS file?
 [params.paige]
 style = """
+a {
+    color: rgb(var(--bs-secondary-rgb));
+}
+
 #paige-site-credit {
     font-size: 14px;
 }
