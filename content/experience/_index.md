@@ -21,15 +21,64 @@ Software Engineer, Query Processing | Aug 2013 - Dec 2015
 
 ## Projects
 
-* Plan cache
-* Explain
-* Cost-based plan ranking
-* SBE
-* Smaller things I contributed to
-  * Collation
-  * JSON Schema
-  * Wildcard indexes
-  * v:2 diffs in oplog
+##### Cost-based optimization
+
+Historically, MongoDB's query optimizer has used an unconventional empirical approach to cost alternative
+plans. The system generates a set of alternative plans, with a set of heuristics to constrain the search
+space and choose a reasonably small number of plans. These plans then undergo the so-called "multi-planning"
+process -- each plan is partially executed in a round robin fashion in order to collect runtime statistics,
+which are fed into a ranking formula. This design has served MongoDB well for years for several reasons:
+* It is simple, easy to understand, and easy to debug/diagnose in customer support contexts.
+* It has "early out" behavior which ensures that the optimization process terminates promptly for key-value
+style queries which are common in document databases.
+* Statistics are derived empirically and thus cannot become stale and do not need to be managed.
+
+At the same time, the multi-planning approach has several drawbacks:
+* It can be led astray by correlations in the data as described <a href="https://jira.mongodb.org/browse/SERVER-20616">here</a>.
+* In edge cases, partial plan execution can run for too long and become expensive.
+* It reduces the number of plan alternatives that the optimizer can explore.
+
+In early 2024, myself and others developed and proposed a roadmap to address
+these shortcomings by introducing cost-based optimization to MongoDB alongside
+the multi-planner. This initiative is under active development and involves
+quite a few lines of work: introducing and calibrating a new cost model,
+implementing various cardinality estimation approaches, and adding more
+sophisticated query optimizer performance and correctness testing.
+
+##### Slot-based execution engine
+
+The slot-based execution engine (SBE) is MongoDB's next-generation query execution
+engine. It is being improved and released iteratively by slowly expanding the set of
+MongoDB Query Language (MQL) features which it can support. I was involved in the early
+phases of developing SBE and putting it into production.
+<!--- TODO finish this --->
+
+##### Explain
+
+I designed and implemented MongoDB's support for <a
+href="https://www.mongodb.com/docs/manual/reference/command/explain/">explain</a>.
+This is a critical debugging and diagnostic tool used extensively to understand
+the behavior of the query engine. This could be either for tuning query
+performance during application development, diagnosing customer performance
+problems, or internally by MongoDB's developers for testing or for analyzing
+bugs.
+
+##### Plan cache
+
+Query systems generally cache query plans chosen by the optimizer in order to
+avoid re-optimizing repetitive queries issued by the client. This typically
+involves auto-parameterization -- replacing certain query constants with
+parameter markers -- such that queries which share the same "shape" can benefit
+from a single cache entry. I implemented MongoDB's first plan cache, which
+remains in production today in largely its original form.
+
+##### Others
+
+In addition to the projects above, I've contributed to the following:
+* Adding support for unicode <a href="https://www.mongodb.com/docs/manual/reference/collation/">collation</a> to the MongoDB Query Language.
+This allows applications to take advantage of locale-specific string comparison rules for natural language.
+* <a href="https://json-schema.org/">JSON Schema</a> support in MongoDB.
+* Migration from MongoDB's legacy wire protocol to <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#std-label-wire-op-msg">OP_MSG</a>, the RPC protocol it uses today.
 
 ## Education
 
