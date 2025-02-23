@@ -25,7 +25,7 @@ Software Engineer, Query Processing | Aug 2013 - Dec 2015
 
 Historically, MongoDB's query optimizer has used an unconventional empirical approach to cost alternative
 plans. The system generates a set of alternative plans, with a set of heuristics to constrain the search
-space and choose a reasonably small number of plans. These plans then undergo the so-called "multi-planning"
+space to a reasonably small number of plans. These plans then undergo the so-called "multi-planning"
 process -- each plan is partially executed in a round robin fashion in order to collect runtime statistics,
 which are fed into a ranking formula. This design has served MongoDB well for years for several reasons:
 * It is simple, easy to understand, and easy to debug/diagnose in customer support contexts.
@@ -41,7 +41,7 @@ At the same time, the multi-planning approach has several drawbacks:
 In early 2024, myself and others developed and proposed a roadmap to address
 these shortcomings by introducing cost-based optimization to MongoDB alongside
 the multi-planner. This initiative is under active development and involves
-quite a few lines of work: introducing and calibrating a new cost model,
+several lines of work: introducing and calibrating a new cost model,
 implementing various cardinality estimation approaches, and adding more
 sophisticated query optimizer performance and correctness testing.
 
@@ -50,8 +50,14 @@ sophisticated query optimizer performance and correctness testing.
 The slot-based execution engine (SBE) is MongoDB's next-generation query execution
 engine. It is being improved and released iteratively by slowly expanding the set of
 MongoDB Query Language (MQL) features which it can support. I was involved in the early
-phases of developing SBE and putting it into production.
-<!--- TODO finish this --->
+phases of developing SBE and putting it into production. One of SBE's primary design goal is to
+offer a set of core primitives for document processing which by composition can express
+the rich query processing behaviors available to end-users of the database system. A second
+key design principle is to gain performance through late materialization -- it permits the
+construction of execution plans which "shred" documents into the relevant values up front,
+compute over those values, and re-materialize the resulting documents as late as possible.
+For expression execution SBE compiles expressions to a customized bytecode and
+implements a VM to execute the bytecode.
 
 ##### Explain
 
@@ -72,13 +78,18 @@ parameter markers -- such that queries which share the same "shape" can benefit
 from a single cache entry. I implemented MongoDB's first plan cache, which
 remains in production today in largely its original form.
 
-##### Others
+##### And more
 
 In addition to the projects above, I've contributed to the following:
 * Adding support for unicode <a href="https://www.mongodb.com/docs/manual/reference/collation/">collation</a> to the MongoDB Query Language.
 This allows applications to take advantage of locale-specific string comparison rules for natural language.
 * <a href="https://json-schema.org/">JSON Schema</a> support in MongoDB.
 * Migration from MongoDB's legacy wire protocol to <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#std-label-wire-op-msg">OP_MSG</a>, the RPC protocol it uses today.
+* Design of the format used to log updates for replication.
+* Storage of schema metadata indicating which fields are arrays, and consumption of this metadata in the query optimizer
+in order to make key optimization decisions.
+* Introduction of a <a href="https://www.mongodb.com/docs/manual/reference/command/setFeatureCompatibilityVersion/">feature compatibility version</a>
+designed to facilitate a smooth upgrade/downgrade process.jk
 
 ## Education
 
