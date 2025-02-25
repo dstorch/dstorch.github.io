@@ -89,7 +89,7 @@ This allows applications to take advantage of locale-specific string comparison 
 * Storage of schema metadata indicating which fields are arrays, and consumption of this metadata in the query optimizer
 in order to make key optimization decisions.
 * Introduction of a <a href="https://www.mongodb.com/docs/manual/reference/command/setFeatureCompatibilityVersion/">feature compatibility version</a>
-designed to facilitate a smooth upgrade/downgrade process.jk
+designed to facilitate a smooth upgrade/downgrade process.
 
 ## Education
 
