@@ -1,0 +1,22 @@
+
+a {
+    color: rgb(var(--bs-secondary-rgb));
+}
+
+#paige-site-credit {
+    font-size: 14px;
+}
+
+.footer-icons {
+    font-size: 20px;
+    text-decoration: none;
+    margin-right: 8px;
+}
+
+/* make active links at the top of the page black and others gray */
+.nav-link .active {
+    color: black;
+}
+.nav-link {
+    color: rgb(var(--bs-secondary-rgb));
+}
