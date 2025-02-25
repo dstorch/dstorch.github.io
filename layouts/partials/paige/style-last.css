@@ -1,4 +1,3 @@
-
 a {
     color: rgb(var(--bs-secondary-rgb));
 }
@@ -19,4 +18,9 @@ a {
 }
 .nav-link {
     color: rgb(var(--bs-secondary-rgb));
+}
+
+/* make the paige/cloud links larger */
+.list-inline-item {
+    font-size: 20px;
 }
