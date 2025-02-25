@@ -50,7 +50,7 @@ sophisticated query optimizer performance and correctness testing.
 The slot-based execution engine (SBE) is MongoDB's next-generation query execution
 engine. It is being improved and released iteratively by slowly expanding the set of
 MongoDB Query Language (MQL) features which it can support. I was involved in the early
-phases of developing SBE and putting it into production. One of SBE's primary design goal is to
+phases of developing SBE and putting it into production. One of SBE's primary design goals is to
 offer a set of core primitives for document processing which by composition can express
 the rich query processing behaviors available to end-users of the database system. A second
 key design principle is to gain performance through late materialization -- it permits the
