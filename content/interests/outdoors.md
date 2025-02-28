@@ -21,7 +21,7 @@ through-hike of the <a href="https://www.westhighlandway.org/">West Highland Way
 {{< paige/figure caption="Lake District, England" >}}
 {{< paige/image height="25rem" src="https://github.com/user-attachments/assets/08de2519-9320-45f5-b026-5ba2ae806ab4" >}}
 {{< /paige/figure >}}
-{{< paige/figure caption="Winter in Vermont" >}}
+{{< paige/figure caption="Winter hiking in Vermont" >}}
 {{< paige/image height="25rem" src="https://github.com/user-attachments/assets/62725f4b-a3b0-4c7b-b834-30a047235ba6" >}}
 {{< /paige/figure >}}
 {{< paige/figure caption="St. John, US Virgin Islands" >}}
