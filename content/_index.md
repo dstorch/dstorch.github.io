@@ -11,7 +11,7 @@ disable_sections = true
 I am a Senior Staff Software Engineer at <a href="https://www.mongodb.com/" class="link-secondary">MongoDB</a>,
 focused on the MongoDB query engine. I've worked on various aspects of query optimization and
 query execution, with a current focus on query optimization for document
-databases. I graduated from Brown University in 2013 with a Bachelor's of Science
+databases. I graduated from Brown University in 2013 with a Bachelor of Science
 in Computer Science. The same year, I started at MongoDB as one of the founding
 members of the MongoDB Query Team. I managed the team from both a technical standpoint
 and a people standpoint, growing it to approximately 10 engineers before returning to my

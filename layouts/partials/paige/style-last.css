@@ -24,3 +24,16 @@ a {
 .list-inline-item {
     font-size: 20px;
 }
+
+/* use a narrow column for the main content */
+#paige-page-content > * {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 40rem;
+}
+/* use a wide look for images and other specific things, as an exception to the narrow look */
+#paige-page-content > .paige-shortcode-image,
+#paige-page-content > .paige-shortcode-gallery,
+#paige-page-content > .big-fancy-text {
+    max-width: 100%;
+}
