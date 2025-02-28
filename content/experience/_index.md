@@ -10,7 +10,7 @@ title = 'Experience'
 MongoDB is the leading document database management system. I've worked on query processing
 at MongoDB for over a decade, and I'm in the top 12 contributors to the MongoDB server by commit count.
 The [projects](#projects) section below gives a flavor of the topics I've worked on during my tenure.
-At MongoDB, I've grown from an entry level software engineering role into my current role as a Senior Staff Engineer:
+At MongoDB, I've grown from an entry level software engineer into my current role as a Senior Staff Engineer:
 
 Title | Timeframe
 ------|----------
@@ -21,16 +21,18 @@ Software Engineer, Query Processing | Aug 2013 - Dec 2015
 
 ## Projects
 
-##### Cost-based optimization
+##### Cost-based Optimization
 
-Historically, MongoDB's query optimizer has used an unconventional empirical approach to cost alternative
-plans. The system generates a set of alternative plans, with a set of heuristics to constrain the search
-space to a reasonably small number of plans. These plans then undergo the so-called "multi-planning"
-process -- each plan is partially executed in a round robin fashion in order to collect runtime statistics,
-which are fed into a ranking formula. This design has served MongoDB well for years for several reasons:
+Historically, MongoDB's query optimizer has used an unconventional empirical
+approach to cost alternative plans. The system generates a set of alternative
+plans, applying a set of heuristics to constrain the search space to a
+reasonably small number of plans. These plans then undergo the so-called
+"multi-planning" process -- each plan is partially executed in a round robin
+fashion in order to collect runtime statistics, which are fed into a ranking
+formula. This design has served MongoDB well for years for several reasons:
 * It is simple, easy to understand, and easy to debug/diagnose in customer support contexts.
 * It has "early out" behavior which ensures that the optimization process terminates promptly for key-value
-style queries which are common in document databases.
+style queries. Key-value workloads are common in document databases due to the use of denormalized schemas.
 * Statistics are derived empirically and thus cannot become stale and do not need to be managed.
 
 At the same time, the multi-planning approach has several drawbacks:
@@ -38,47 +40,47 @@ At the same time, the multi-planning approach has several drawbacks:
 * In edge cases, partial plan execution can run for too long and become expensive.
 * It reduces the number of plan alternatives that the optimizer can explore.
 
-In early 2024, myself and others developed and proposed a roadmap to address
-these shortcomings by introducing cost-based optimization to MongoDB alongside
-the multi-planner. This initiative is under active development and involves
-several lines of work: introducing and calibrating a new cost model,
-implementing various cardinality estimation approaches, and adding more
-sophisticated query optimizer performance and correctness testing.
+In early 2024, myself and others proposed a roadmap to address these
+shortcomings by introducing cost-based optimization to MongoDB alongside
+multi-planning. This initiative is under active development and involves several
+lines of work: introducing and calibrating a new cost model, implementing
+various cardinality estimation approaches, and adding more sophisticated query
+optimizer performance and correctness testing.
 
-##### Slot-based execution engine
+##### Slot-based Execution Engine
 
-The slot-based execution engine (SBE) is MongoDB's next-generation query execution
-engine. It is being improved and released iteratively by slowly expanding the set of
-MongoDB Query Language (MQL) features which it can support. I was involved in the early
-phases of developing SBE and putting it into production. One of SBE's primary design goals is to
-offer a set of core primitives for document processing which by composition can express
-the rich query processing behaviors available to end-users of the database system. A second
-key design principle is to gain performance through late materialization -- it permits the
-construction of execution plans which "shred" documents into the relevant values up front,
-compute over those values, and re-materialize the resulting documents as late as possible.
-For expression execution SBE compiles expressions to a customized bytecode and
-implements a VM to execute the bytecode.
+The slot-based execution engine (SBE) is MongoDB's next-generation query
+execution engine. It is being improved and released iteratively by expanding the
+set of MongoDB Query Language (MQL) features that it can support. I was
+involved in the early phases of developing SBE and putting it into production.
+One of SBE's primary design goals is to offer a set of core primitives for
+document processing which by composition can express the rich query processing
+behaviors available to end-users of the database system. A second key design
+principle is to gain performance through late materialization -- it permits the
+construction of execution plans which "shred" documents into the relevant values
+up front, compute over those values, and re-materialize the resulting documents
+as late as possible. For expression execution, SBE compiles expressions to a
+customized bytecode and implements a VM to execute the bytecode.
 
 ##### Explain
 
 I designed and implemented MongoDB's support for <a
 href="https://www.mongodb.com/docs/manual/reference/command/explain/">explain</a>.
-This is a critical debugging and diagnostic tool used extensively to understand
-the behavior of the query engine. This could be either for tuning query
-performance during application development, diagnosing customer performance
-problems, or internally by MongoDB's developers for testing or for analyzing
-bugs.
+This is a critical debugging and diagnostic tool for understanding the behavior
+of the query engine. It is used extensively for tuning query performance during
+application development, diagnosing customer performance problems, and internally
+by MongoDB's developers for testing or for analyzing bugs.
 
-##### Plan cache
+##### Plan Cache
 
 Query systems generally cache query plans chosen by the optimizer in order to
 avoid re-optimizing repetitive queries issued by the client. This typically
-involves auto-parameterization -- replacing certain query constants with
-parameter markers -- such that queries which share the same "shape" can benefit
-from a single cache entry. I implemented MongoDB's first plan cache, which
-remains in production today in largely its original form.
+involves auto-parameterization -- replacing query constants with parameter
+markers -- such that queries which share the same "shape" can benefit from a
+single cache entry. I implemented MongoDB's first plan cache, which remains in
+production today, largely in its original form.
 
-##### And more
+##### And More
 
 In addition to the projects above, I've contributed to the following:
 * Adding support for unicode <a href="https://www.mongodb.com/docs/manual/reference/collation/">collation</a> to the MongoDB Query Language.
@@ -87,7 +89,7 @@ This allows applications to take advantage of locale-specific string comparison 
 * Migration from MongoDB's legacy wire protocol to <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#std-label-wire-op-msg">OP_MSG</a>, the RPC protocol it uses today.
 * Design of the format used to log updates for replication.
 * Storage of schema metadata indicating which fields are arrays, and consumption of this metadata in the query optimizer
-in order to make key optimization decisions.
+in order to make performance-critical optimization decisions.
 * Introduction of a <a href="https://www.mongodb.com/docs/manual/reference/command/setFeatureCompatibilityVersion/">feature compatibility version</a>
 designed to facilitate a smooth upgrade/downgrade process.
 
