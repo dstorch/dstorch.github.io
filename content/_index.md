@@ -10,7 +10,7 @@ disable_sections = true
 {{% big-fancy-text %}}
 I am a Senior Staff Software Engineer on the Online Transaction Processing team at
 <a href="https://www.mongodb.com/" class="link-secondary">MongoDB</a>. I have over a decade of experience
-working on various aspects of database management system internals with a special expertise in query
+working on various aspects of database management system internals with deep expertise in query
 optimization and query execution. I graduated from Brown University in 2013 with a Bachelor of
 Science in Computer Science. The same year, I started at MongoDB as one of the founding members of
 the MongoDB Query Team. I managed the team from both a technical standpoint and a people standpoint,

@@ -10,7 +10,7 @@ title = 'Experience'
 MongoDB is the leading document database management system. I've worked on query processing at
 MongoDB for over a decade, and I'm in the top 15 contributors to the MongoDB server by commit count.
 The [projects](#projects) section below gives a flavor of the topics I've worked on during my
-tenure. At MongoDB, I've grown from an entry level software engineer into my current role as a
+tenure. At MongoDB, I've grown from an entry-level software engineer into my current role as a
 Senior Staff Engineer. In August 2026, my responsibilities expanded to encompass the entire Online
 Transaction Processing (OLTP) team, covering query processing as well as other subdomains such as
 sharding and catalog.
@@ -30,7 +30,7 @@ Software Engineer, Query Processing | Aug 2013 - Dec 2015
 Historically, MongoDB's query optimizer has used an unconventional empirical approach to cost
 alternative plans. The system generates a set of alternative plans, applying a set of heuristics to
 constrain the search space to a reasonably small number of plans. These plans then undergo the
-so-called "multi-planning" process -- each plan is partially executed in a round robin fashion in
+so-called "multi-planning" process -- each plan is partially executed in a round-robin fashion in
 order to collect runtime statistics, which are fed into a ranking formula. This design has served
 MongoDB well for years for several reasons:
 * It is simple, easy to understand, and easy to debug/diagnose in customer support contexts.
@@ -95,7 +95,7 @@ it integrates with components from the Cost-Based Ranking system described above
 ##### And More
 
 In addition to the projects above, I've contributed to the following:
-* Adding support for unicode <a href="https://www.mongodb.com/docs/manual/reference/collation/">collation</a> to the MongoDB Query Language.
+* Adding support for Unicode <a href="https://www.mongodb.com/docs/manual/reference/collation/">collation</a> to the MongoDB Query Language.
 This allows applications to take advantage of locale-specific string comparison rules for natural language.
 * <a href="https://json-schema.org/">JSON Schema</a> support in MongoDB.
 * Migration from MongoDB's legacy wire protocol to <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#std-label-wire-op-msg">OP_MSG</a>, the RPC protocol it uses today.
